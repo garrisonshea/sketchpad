@@ -54,6 +54,7 @@ function opacity() {
 //defines function to reset the board back to default color
 function clear() {
 	$(".square").css("background", "#225378");
+	$(".square").css("opacity", 1);
 }
 
 
