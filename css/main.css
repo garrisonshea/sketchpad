@@ -8,6 +8,11 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
+h1 {
+	text-align: center;
+	margin: 0;
+	padding: 20px 0 0;
+}
 #container {
 	width: 960px;
 	margin: 0 auto;
@@ -16,7 +21,7 @@ html {
 }
 .sketch {
 	display: inline-block;
-	background: black;
+	background: #225378;
 	margin-bottom: -4px;
 	padding: 0;
 }
