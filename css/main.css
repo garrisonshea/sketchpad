@@ -8,20 +8,41 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
+body {
+	background: #1695A3;
+	color: #F3FFE2;
+}
 h1 {
 	text-align: center;
 	margin: 0;
 	padding: 20px 0 0;
+	color: #F3FFE2;
 }
-#container {
+.effectButtons,
+.optionButtons {
+	margin: 15px auto;
+	display: block;
+	text-align: center;
+}
+.optionButtons button {
+	height: 30px;
+	background: #ACF0F2;
+	border: 1px solid transparent;
+	border-radius: 2px;
+	font-weight: bold;
+}
+.container {
 	width: 960px;
+	height: 960px;
 	margin: 0 auto;
 	padding: 0;
-	background: orange;
+	font-size: 0;  /*doing this removes spaces between divs*/
+
 }
-.sketch {
+.square {
 	display: inline-block;
 	background: #225378;
-	margin-bottom: -4px;
+	margin: 0;
 	padding: 0;
+	vertical-align: top;
 }

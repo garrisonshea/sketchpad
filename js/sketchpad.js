@@ -1,33 +1,47 @@
-// This Sketchpad application will create a 960px grid that reacts to the user's mouse 
-// hovering over the indiviual squares. 
 $(document).ready(function() {
-	$(".sketch").mouseenter(function() {
-		$(this).css("background", "#EB7F00");
-	});
-	$("#default").click(function() {
-		$(".sketch").css("background", "#225378");
-	})
+	createGrid(16);
 });
 
-// This function will run on load and will create the default sketchpad
-function createSketchpad(width) {
-	var squareWidth = Math.floor(960 / width);
-	for (var j = 0; j < width; j++) {
-		for (var i = 0; i < width; i++) {
-			var div = document.createElement("div");
-			div.setAttribute("class", "sketch");
-			document.getElementById("container").appendChild(div);
-		}
+function createGrid(squares) {
+	var squareSize = (960 / squares); 
+
+	if($(".square")[0]) {
+		$(".square").remove(); //remove grid if it exists already
 	}
-	console.log(squareWidth);
-	$(".sketch").width(squareWidth);
-	$(".sketch").height($(".sketch").width());
-	// $('#container').height($('.sketch').width() * width);
+
+	for (var i = 0; i < (squares * squares); i++) {
+		$(".container").append("<div class='square'></div>");
+	}
+	$(".square").width(squareSize);
+	$(".square").height(squareSize);
+
+	sketch();
 }
 
-//Sets all squares back to the blue, untouched color
-function clearGrid() {
-	$(".sketch").css("background", "#225378");
+//Sets the drawing mode to default - mouse over for orange
+function sketch() {
+	$(".square").mouseenter(function() {
+		$(this).css("background", "#EB7F00");
+	});
 }
 
-createSketchpad(16);
+function getGridSize() {
+	do {
+		var size = prompt("Please enter a number between 1-128: ");
+	} while (size < 1 || size > 128);
+	return size;
+}
+
+//defines function to reset the board back to default color
+function clear() {
+	$(".square").css("background", "#225378");
+}
+
+$("#new-grid").click(function() {
+	createGrid(getGridSize());
+});
+
+//calls the clear function when button is clicked
+$("#clear").click(function() {
+	clear();
+});
