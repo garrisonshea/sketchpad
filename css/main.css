@@ -32,6 +32,7 @@ h1 {
 	font-weight: bold;
 }
 .container {
+	background: #000;
 	width: 960px;
 	height: 960px;
 	margin: 0 auto;

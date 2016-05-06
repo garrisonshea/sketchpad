@@ -32,14 +32,49 @@ function getGridSize() {
 	return size;
 }
 
+function randomColor() {
+	$(".square").mouseenter(function() {
+		var randomColor = "rgb(" + Math.floor(Math.random() * 256) +
+		", " + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256)
+		+ ")";
+		$(this).css("background", randomColor);
+	});
+}
+
+function opacity() {
+	$(".square").mouseenter(function() {
+		var currentOpacity = $(this).css("opacity");
+		if(currentOpacity !== 0) {
+			$(this).css("opacity", currentOpacity - 0.1);
+		}
+	});
+}
+
+
 //defines function to reset the board back to default color
 function clear() {
 	$(".square").css("background", "#225378");
 }
 
+
+//Binding function to event handlers
+
 $("#new-grid").click(function() {
 	createGrid(getGridSize());
 });
+
+$("#default").click(function() {
+	sketch();
+})
+
+$("#random").click(function() {
+	randomColor();
+});
+
+$("#opacity").click(function() {
+	opacity();
+});
+
 
 //calls the clear function when button is clicked
 $("#clear").click(function() {
